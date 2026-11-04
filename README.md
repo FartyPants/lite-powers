@@ -4,6 +4,8 @@ Lightweight planning, execution, review and TDD skills for Claude Code, built fo
 
 lite-powers keeps the good ideas of [superpowers](https://github.com/obra/superpowers) and [mattpocock/skills](https://github.com/mattpocock/skills) and drops the weight.
 
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/b2244cb4-520f-4310-b5ac-148ebee895c6" />
+
 ## Why
 
 The goal is skills written for modern models, which are much smarter than the original skills anticipated. Superpowers was designed around weaker models: it forces skill invocation on every turn, hard-gates work behind brainstorming, spells out plans down to exact code, pre-empts rationalizations with long tables, and wraps every task in ledgers and multi-round review loops. Those guardrails made sense when the model couldn't be trusted to plan, verify or judge. Today they mostly cost tokens, time and your patience.

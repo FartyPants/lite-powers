@@ -1,0 +1,13 @@
+{
+  "name": "lite-powers",
+  "description": "Lightweight planning, execution, review, debugging and optional TDD skills for modern models, distilled from superpowers and mattpocock/skills. No forced skill invocation.",
+  "version": "0.1.0",
+  "author": {
+    "name": "FPHam",
+    "url": "https://github.com/FartyPants"
+  },
+  "homepage": "https://github.com/FartyPants/lite-powers",
+  "repository": "https://github.com/FartyPants/lite-powers",
+  "license": "MIT",
+  "keywords": ["planning", "code-review", "tdd", "debugging", "subagents", "lightweight"]
+}

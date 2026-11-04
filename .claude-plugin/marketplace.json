@@ -1,0 +1,18 @@
+{
+  "name": "lite-powers",
+  "owner": {
+    "name": "FPHam",
+    "url": "https://github.com/FartyPants"
+  },
+  "description": "lite-powers: lightweight Claude Code skills for planning, execution, review and debugging.",
+  "plugins": [
+    {
+      "name": "lite-powers",
+      "source": "./",
+      "description": "Lightweight planning, execution, review, debugging and optional TDD skills for modern models.",
+      "version": "0.1.0",
+      "category": "engineering",
+      "keywords": ["planning", "code-review", "tdd", "debugging", "subagents"]
+    }
+  ]
+}

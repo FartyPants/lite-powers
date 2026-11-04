@@ -4,7 +4,7 @@ Lightweight planning, execution, review and TDD skills for Claude Code, built fo
 
 lite-powers keeps the good ideas of [superpowers](https://github.com/obra/superpowers) and [mattpocock/skills](https://github.com/mattpocock/skills) and drops the weight.
 
-<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/b2244cb4-520f-4310-b5ac-148ebee895c6" />
+<img width="774" height="578" alt="image" src="https://github.com/user-attachments/assets/b106e915-fb04-438e-9cc3-c23905c90653" />
 
 ## Why
 

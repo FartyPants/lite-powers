@@ -17,7 +17,7 @@ lite-powers assumes a capable model. It gives the model the decisions it can't m
 - **Nothing is forced.** Skills fire from their descriptions, and quick, clear tasks just get done. The session-start note is one line.
 - **You choose how work runs.** Before building, you're always asked **Native** (Claude implements in this session) vs **Subagent-driven** (a fresh subagent per task, each reviewed), and **Plain** vs **TDD**.
 - **Everything is written down.** Brainstorms, designs and plans live in your project under `docs/work/`, and the plan records what was and wasn't done after every step.
-- **Small.** About 690 lines across 14 skills, supporting files included. The superpowers skills it replaces come to about 2,350 lines in their SKILL.md files alone, and about 4,300 with their supporting files.
+- **Small.** About 800 lines across 15 skills, supporting files included. The superpowers skills it replaces come to about 2,350 lines in their SKILL.md files alone, and about 4,300 with their supporting files.
 
 ## Install
 
@@ -73,6 +73,7 @@ Not every task needs every stage. A quick, clear request is done directly. A sma
 | `/lite-powers:handoff` | Writes a handoff document for a fresh session. |
 | `/lite-powers:claude-handoff` | Writes the handoff and starts a background Claude session with it (`claude --bg`). |
 | `/lite-powers:research` | Background agent researches primary sources and saves cited findings as Markdown. |
+| `/lite-powers:unattended` | Drafts a `/goal` that runs an approved plan to the end without you: hand checks go to `verification.md`, blockers are recorded, and the run continues. |
 
 ## The docs trail
 

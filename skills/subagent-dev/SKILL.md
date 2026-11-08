@@ -7,6 +7,8 @@ description: Use when the user chose Subagent-driven execution for a plan or a s
 
 You coordinate; subagents implement and review. Each implementer sees only its task, so your context stays free for coordination. You are the only one who edits plan.md, following [plan-status.md](../write-plan/plan-status.md).
 
+In an unattended run (a `/goal` drafted by `lite-powers:unattended`), [unattended.md](../unattended/unattended.md) replaces every pause and question below.
+
 ## Before starting
 
 - If the user hasn't chosen Native vs Subagent-driven for this work, ask (AskUserQuestion, options as in `lite-powers:write-plan`). Native -> switch to `lite-powers:execute-plan`.

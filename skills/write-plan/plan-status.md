@@ -36,4 +36,4 @@ Then link the plan's Outcome from brainstorm.md's **Next** line, and update the 
 
 ## Resume
 
-After compaction, reread plan.md and continue at the first task whose Status isn't `done`, at its first unticked step. The plan file (including **Base**) and `git log` are the memory.
+After compaction, reread plan.md and continue at the first task whose Status isn't `done`, at its first unticked step. The plan file (including **Base**) and `git log` are the memory. A header with `**Unattended:** yes` means the run keeps following [unattended.md](../unattended/unattended.md).

@@ -7,6 +7,8 @@ description: Use when the user chose Native execution for a plan - you implement
 
 You implement the plan task by task, keep plan.md current per [plan-status.md](../write-plan/plan-status.md), then one fresh reviewer checks the whole change.
 
+In an unattended run (a `/goal` drafted by `lite-powers:unattended`), [unattended.md](../unattended/unattended.md) replaces every pause and question below.
+
 ## Before starting
 
 - If the user hasn't chosen Native vs Subagent-driven for this plan, ask (AskUserQuestion, options as in `lite-powers:write-plan`). Subagent-driven -> switch to `lite-powers:subagent-dev`.

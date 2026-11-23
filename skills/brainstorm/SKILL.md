@@ -44,7 +44,7 @@ For anything beyond a quick task, keep the record at `docs/work/YYYY-MM-DD-<topi
 <question -> verdict, branch name>
 ## Open questions
 ## Execution / Testing
-<Native | Subagent-driven> / <Plain | TDD>
+<Native | Subagent-driven> / <Plain | TDD> / <Narrow | Full>
 ## Outcome
 <small changes only: what was built, what was not, test results, follow-ups>
 ```
@@ -60,9 +60,10 @@ Say the size in plain words; they can override.
 | Project | `design.md`, then `lite-powers:write-plan` |
 | Multi-project | `roadmap.md`, then brainstorm each sub-project in order |
 
-**Small change, before building:** ask both questions in one AskUserQuestion call:
+**Small change, before building:** ask all three questions in one AskUserQuestion call:
 - **Execution:** Native (I implement it here) / Subagent-driven (a subagent implements, a fresh reviewer checks; run via `lite-powers:subagent-dev` with brainstorm.md as the task).
 - **Testing:** Plain (implement, then run existing tests/build) / TDD (failing test first; uses `lite-powers:tdd`).
+- **Test scope:** Narrow (recommended: run only the tests the change can affect, then the full suite once at the end) / Full (run the full suite at every test step).
 
 ## `design.md` (projects)
 

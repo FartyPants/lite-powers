@@ -17,7 +17,7 @@ lite-powers assumes a capable model. It gives the model the decisions it can't m
 - Reviews are a single fresh-context pass, not loops.
 
 - **Nothing is forced.** Skills fire from their descriptions, and quick, clear tasks just get done. The session-start note is one line.
-- **You choose how work runs.** Before building, you're always asked **Native** (Claude implements in this session) vs **Subagent-driven** (a fresh subagent per task, each reviewed), and **Plain** vs **TDD**.
+- **You choose how work runs.** Before building, you're always asked **Native** (Claude implements in this session) vs **Subagent-driven** (a fresh subagent per task, each reviewed), **Plain** vs **TDD**, and **Narrow** (only the tests a change can affect, full suite once at the end) vs **Full** (full suite at every test step) test scope.
 - **Everything is written down.** Brainstorms, designs and plans live in your project under `docs/work/`, and the plan records what was and wasn't done after every step.
 - **Small.** About 800 lines across 15 skills, supporting files included. The superpowers skills it replaces come to about 2,350 lines in their SKILL.md files alone, and about 4,300 with their supporting files.
 
@@ -57,7 +57,7 @@ Not every task needs every stage. A quick, clear request is done directly. A sma
 | Skill | What it does |
 |---|---|
 | `brainstorm` | Finds out what you want and why. Asks in **rounds**: every answerable question at once, numbered, each with a recommended answer so "yes" accepts it. Looks up facts itself and asks you only for decisions. Sizes the work. |
-| `write-plan` | Decision-level plan: vertical-slice tasks with files, interfaces, test seams, acceptance criteria and blocking edges. The model writes the code. Asks Plain vs TDD first and Native vs Subagent-driven at the end, every time. |
+| `write-plan` | Decision-level plan: vertical-slice tasks with files, interfaces, test seams, acceptance criteria and blocking edges. The model writes the code. Asks Plain vs TDD and Narrow vs Full test scope first, and Native vs Subagent-driven at the end, every time. |
 | `execute-plan` | Native mode: implements every task in the session, keeps plan.md current, then one fresh reviewer checks the whole change. |
 | `subagent-dev` | Subagent-driven mode: one implementer subagent per task, a reviewer per task, one fix round, one final review. |
 | `tdd` | Red-green-refactor in vertical slices, at **seams** agreed with you up front. Fires only when you picked TDD. |

@@ -12,8 +12,8 @@ In an unattended run (a `/goal` drafted by `lite-powers:unattended`), [unattende
 ## Before starting
 
 - If the user hasn't chosen Native vs Subagent-driven for this work, ask (AskUserQuestion, options as in `lite-powers:write-plan`). Native -> switch to `lite-powers:execute-plan`.
-- **With a plan:** read it and its spec, and note the Constraints and the **Testing** mode (ask Plain vs TDD if missing). Write `**Base:** <git rev-parse HEAD>` and `**Status:** in progress` into the plan header.
-- **Small change (no plan):** the brainstorm.md is the single task. Record Base under its **Execution / Testing** line, run the per-task loop once (the review in step 4 is also the final review), and put the Result into its **Outcome**.
+- **With a plan:** read it and its spec, and note the Constraints, the **Testing** mode and the **Test scope** (if either is missing, ask both in one AskUserQuestion, options as in `lite-powers:write-plan`). Pass both to every implementer. Write `**Base:** <git rev-parse HEAD>` and `**Status:** in progress` into the plan header.
+- **Small change (no plan):** the brainstorm.md is the single task. Record Base under its **Execution / Testing** line, run the per-task loop once (the review in step 4 is also the final review), then run the full suite yourself once, and put the Result into its **Outcome**.
 - Work on a feature branch when the repo is shared; main/master needs the user's OK.
 - Resuming? Follow the Resume rule in plan-status.md.
 
@@ -43,12 +43,14 @@ Keep going through all tasks without check-ins. The pause conditions are the sam
 
 ## Final review (plans)
 
-One reviewer, on the strongest model available, over `<Base>..HEAD`, with the plan, the spec, "Risks to check" and every Open/Deferred line. For Critical/Important findings, dispatch one fixer with the whole list, then run the full suite yourself. That's the last fix wave; anything still failing goes into Outcome.
+One reviewer, on the strongest model available, over `<Base>..HEAD`, with the plan, the spec, "Risks to check" and every Open/Deferred line. For Critical/Important findings, dispatch one fixer with the whole list. That's the last fix wave. Then run the full suite yourself, once, after the last code change, whether or not there were fixes. Anything still failing goes into Outcome.
+
+With Test scope Narrow, implementers run only the tests their diff affects, so this is the first full run, and a cross-task regression surfaces here.
 
 ## Done when
 
 - Every task has a final Status and a filled-in Result.
-- The full suite ran green after the last fix, or its failures are listed in Outcome.
+- The full suite ran once after the last code change and is green, or its failures are listed in Outcome.
 - The final review findings are fixed or recorded.
 - Outcome is filled in, the plan Status is `done`, and brainstorm.md links the Outcome.
 

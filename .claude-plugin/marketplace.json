@@ -10,7 +10,7 @@
       "name": "lite-powers",
       "source": "./",
       "description": "Lightweight planning, execution, review, debugging and optional TDD skills for modern models.",
-      "version": "0.1.0",
+      "version": "0.2.0",
       "category": "engineering",
       "keywords": ["planning", "code-review", "tdd", "debugging", "subagents"]
     }

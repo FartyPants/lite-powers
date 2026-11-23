@@ -8,7 +8,7 @@ its Interfaces and the plan's Constraints) or "the small change described in
 <brainstorm.md path>". The exact values are there. Spec: [SPEC_PATH or none].
 
 Context you can't read there: [earlier decisions / deviations touching this work]
-Testing mode: [Plain | TDD]   Work in: [directory]
+Testing mode: [Plain | TDD]   Test scope: [Narrow | Full]   Work in: [directory]
 
 If requirements or approach are unclear, ask now.
 
@@ -16,7 +16,14 @@ If requirements or approach are unclear, ask now.
 2. TDD mode: call the Skill tool with `lite-powers:tdd` (if that skill is
    unavailable, read [TDD_SKILL_PATH] instead) and follow it at the agreed
    seams. Plain mode: run the Verify command and read the output.
-   Then run the project's full test command if one exists.
+   Test scope Full: then run the project's full test command.
+   Test scope Narrow: then run the tests your diff can affect: tests for
+   the files you changed and tests that import them, using the runner's
+   own selection (paths, packages, related-file options). Don't run the
+   full suite; the coordinator runs it once at the end. Exception: you
+   touched shared code (fixtures, config, build, schema, common utilities,
+   dependencies) or can't tell what's affected. Then run it, and say why
+   in Tests.
 3. Commit if the task has a commit step.
 4. Reread your diff for gaps and extras, and fix what you find.
 

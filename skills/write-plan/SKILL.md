@@ -7,12 +7,16 @@ description: Use when there is an approved design or clear requirements for a mu
 
 Plan at the **decision level**. The implementer is a capable model: give it the decisions it can't make alone (task boundaries, files, interfaces, seams, acceptance criteria, exact values the spec pins) and let it write the code. The plan is also the living record of what was done; execution skills update it per [plan-status.md](plan-status.md).
 
-## Step 0: ask the testing style
+## Step 0: ask the testing style and test scope
 
-Before writing each plan, ask (AskUserQuestion), even if the user chose for an earlier plan:
+Before writing each plan, ask both questions in one AskUserQuestion call, even if the user chose for an earlier plan:
 
-- **Plain**: each task is implement, then verify (existing tests, build, or a concrete check).
-- **TDD**: each task is built test-first at the agreed seams with `lite-powers:tdd`.
+- **Testing:**
+  - **Plain**: each task is implement, then verify with the narrowest check that proves it (the tests the task affects, a build, or a concrete check).
+  - **TDD**: each task is built test-first at the agreed seams with `lite-powers:tdd`.
+- **Test scope:**
+  - **Narrow** (recommended): each task runs only the tests its changes can affect; the full suite runs once, after the last code change. Faster; a cross-task regression shows up at the end.
+  - **Full**: the full suite runs at every test step (after each task, and after each slice in TDD) and at the end. Slowest; catches a regression at the step that caused it.
 
 ## Shape the tasks
 
@@ -31,8 +35,9 @@ Save as `plan.md` in the topic's existing `docs/work/<date>-<topic>/` folder, ne
 **Goal:** one sentence
 **Approach:** 2-3 sentences
 **Spec:** <link to design.md>   **Brainstorm:** <link>
-**Execution:** Native | Subagent-driven   **Testing:** Plain | TDD
+**Execution:** Native | Subagent-driven   **Testing:** Plain | TDD   **Test scope:** Narrow | Full
 **Base:** <commit sha when execution starts; the final review diffs from here>
+**Full suite:** `<command>` (runs after the last code change; with Test scope Full, also at every test step)
 
 ## Constraints
 <project-wide requirements, exact values copied from the spec, one per line>
@@ -52,7 +57,7 @@ Save as `plan.md` in the topic's existing `docs/work/<date>-<topic>/` folder, ne
 - [ ] <checkable criterion, exact values where the spec pins them>
 
 - [ ] Implement
-- [ ] Verify: `<command>` -> <expected>
+- [ ] Verify: `<narrowest command that proves this task, not the full suite>` -> <expected>
 - [ ] Commit: `<message>` (git only)
 
 **Result:**

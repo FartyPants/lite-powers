@@ -12,7 +12,7 @@ In an unattended run (a `/goal` drafted by `lite-powers:unattended`), [unattende
 ## Before starting
 
 - If the user hasn't chosen Native vs Subagent-driven for this plan, ask (AskUserQuestion, options as in `lite-powers:write-plan`). Subagent-driven -> switch to `lite-powers:subagent-dev`.
-- Read the plan and its spec. Note the Constraints and the **Testing** mode (ask Plain vs TDD if missing). TDD mode: load `lite-powers:tdd` now.
+- Read the plan and its spec. Note the Constraints, the **Testing** mode and the **Test scope** (if either is missing, ask both in one AskUserQuestion, options as in `lite-powers:write-plan`). TDD mode: load `lite-powers:tdd` now.
 - Work on a feature branch when the repo is shared; main/master needs the user's OK.
 - Write `**Base:** <git rev-parse HEAD>` and `**Status:** in progress` into the plan header (git only for Base).
 - Resuming? Follow the Resume rule in plan-status.md.
@@ -37,19 +37,25 @@ Keep going through all tasks without check-ins. Pause only for:
 
 Before pausing, set the plan Status to `stopped`.
 
+**Test scope Full:** run the full suite after every task, and follow the Full rule in `lite-powers:tdd`.
+
+**Test scope Narrow:** per task, run only the tests the change can affect: tests for the changed files and tests that import them, using the runner's own selection. The full suite runs once, after the last code change (see Final review). Run it earlier only when a task touches shared code (fixtures, config, build, schema, common utilities, dependencies) or you can't tell which tests it affects. A green full run on an unchanged tree still counts; don't rerun it.
+
 Send long test output to a file and read its tail.
 
 ## Final review
 
 Run `lite-powers:request-review` on `<Base>..HEAD` (or the working tree against Base if there were no commits), with the plan, the spec and "Risks to check". Handle the findings with `lite-powers:receive-review`:
-- Critical/Important: fix in one pass, verify each fix (TDD mode: failing test first), then run the full suite.
+- Critical/Important: fix in one pass, and verify each fix with the tests it affects (TDD mode: failing test first).
 - Minor: record as deferred in the Outcome.
 - One review round in total.
+
+Then run the full suite once, after the last code change, whether or not there were fixes.
 
 ## Done when
 
 - Every task has a final Status and a filled-in Result.
-- The full suite ran green after the review fixes, or its failures are listed in Outcome.
+- The full suite ran once after the last code change and is green, or its failures are listed in Outcome.
 - The review findings are fixed or recorded.
 - Outcome is filled in, the plan Status is `done`, and brainstorm.md links the Outcome.
 

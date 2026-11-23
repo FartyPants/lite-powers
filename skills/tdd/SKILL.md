@@ -22,11 +22,13 @@ If `GLOSSARY.md` exists, name tests in its vocabulary.
    - Already passes: it's testing existing behavior, so change the test.
    - Errors: fix the error and rerun until it fails properly.
 3. **GREEN**: write the simplest code that passes.
-4. **Verify GREEN**: run it, then the full suite. Everything should be green with clean output. If it fails, fix the code and keep the test.
+4. **Verify GREEN**: run it, then the tests this slice can affect: tests for the files you touched and tests that import them. Everything should be green with clean output. If it fails, fix the code and keep the test.
 5. **REFACTOR**: improve names and remove duplication while staying green.
 6. Next slice: let what this cycle taught you shape the next test.
 
 Code written before its test gets set aside, and the slice restarts from the test.
+
+**Test scope** (from the plan or brainstorm; Narrow if unset). Narrow: the full suite runs once, after the last code change, not per slice. Full: also run the full suite at step 4 of every slice. In Narrow, run it earlier only when a slice touches shared code (fixtures, config, build, schema, common utilities, dependencies) or you can't tell which tests it affects. A green full run on an unchanged tree still counts; don't rerun it.
 
 ## Tests worth keeping
 
@@ -45,4 +47,4 @@ Throwaway spikes, generated code and pure config are exempt; say so when you ski
 ## Done when
 
 - Every new behavior has a test at an agreed seam that you watched fail for the right reason.
-- The full suite passes with clean output.
+- The full suite passed with clean output, once, after the last code change.

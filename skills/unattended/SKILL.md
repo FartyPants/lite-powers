@@ -16,8 +16,8 @@ Read the plan named in the argument and the design.md, brainstorm.md and roadmap
 Take these from the files:
 
 - **Tasks:** the range in the argument, otherwise all of them.
-- **Execution and Testing:** the plan header. If either is missing, ask now in one AskUserQuestion, because the run can't ask later.
-- **Final checks:** the full-suite command, plus any smoke check the plan names (the app starts, the server answers).
+- **Execution, Testing and Test scope:** the plan header. If any is missing, ask now in one AskUserQuestion, because the run can't ask later.
+- **Final checks:** the plan's **Full suite:** command, plus any smoke check the plan names (the app starts, the server answers).
 - **Spec:** the paths the run must follow.
 - **Branch:** the current one. On main/master of a repo with a remote, a new feature branch named after the topic.
 - **Hand checks:** every Acceptance or Verify line only a person can judge (heard, seen on a real display, felt, needs their account or hardware). Name each one with its task.
@@ -30,7 +30,7 @@ Fill in this template. Keep project specifics in, drop any line with nothing to 
 The goal check reads only the conversation and runs no tools, so every "Done means" line has to be provable from what the run prints. Each line must also be reachable when a task ends up blocked, or the goal never clears.
 
 ```text
-Execute <plan path>, Tasks <range>, with lite-powers:<execute-plan | subagent-dev> (<Native | Subagent-driven>, <Plain | TDD>), unattended.
+Execute <plan path>, Tasks <range>, with lite-powers:<execute-plan | subagent-dev> (<Native | Subagent-driven>, <Plain | TDD>, <Narrow | Full> test scope), unattended.
 
 Done means:
 - Every task in range has a final Status in plan.md and its Result filled in.
